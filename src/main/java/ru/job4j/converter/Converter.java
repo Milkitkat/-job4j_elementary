@@ -1,23 +1,23 @@
 package ru.job4j.converter;
 
-public class Converter {
 
+import java.util.Locale;
+
+public class Converter {
     public static float rubleToEuro(float value) {
-        float rsl = value / 70;
-        return rsl;
+        return value / 70;
     }
 
     public static float rubleToDollar(float value) {
-        float rsl = value / 60;
-        return rsl;
+        return value / 60;
     }
 
     public static void main(String[] args) {
         float euro = Converter.rubleToEuro(140);
         System.out.println("140 rubles are " + euro + " euro.");
         float dollar = Converter.rubleToDollar(140);
-        dollar = Math.round(dollar);
-        System.out.println("140 rubles are " + dollar + " dollar.");
+        String result = String.format("%.4f", dollar);
+        System.out.println("140 rubles are " + result + " dollar.");
 
         float in = 140;
         float expected = 2;
@@ -25,5 +25,12 @@ public class Converter {
         boolean passed = expected == out;
         System.out.println("140 rubles are 2. Test result : " + passed);
 
+        float inD = 140;
+        float expectedD = (float) 2.3333;
+        float outD = Converter.rubleToDollar(inD);
+        float result1 = Float.parseFloat(String.format(Locale.ROOT, "%.4f", outD));
+
+        boolean passedD = expectedD == result1;
+        System.out.println("140 rubles are 2,3333. Test result : " + passedD);
     }
 }
