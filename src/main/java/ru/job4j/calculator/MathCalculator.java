@@ -2,7 +2,6 @@ package ru.job4j.calculator;
 
 import static ru.job4j.math.MathFunction.*;
 
-
 public class MathCalculator {
     public static double sumAndMultiply(double first, double second) {
         return sum(first, second)
@@ -10,14 +9,15 @@ public class MathCalculator {
     }
 
     public static double minus1(double first, double second) {
-        return minus(first,second)+
-                separate(first,second);
+        return minus(first, second)
+               + separate(first, second);
     }
+
     public static double rsl(double first, double second) {
         return sum(first, second)
-                + multiply(first, second) +
-                minus(first,second) +
-                separate(first,second);
+                + multiply(first, second)
+                + minus(first, second)
+                + separate(first, second);
     }
 
     public static void main(String[] args) {
